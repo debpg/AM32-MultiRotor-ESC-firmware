@@ -610,7 +610,7 @@ void loadEEpromSettings(){
 	    }else{
 	    	advance_level = 2;  // * 7.5 increments
 	    }
-
+//FREQUENZA PWM 
 	   if(eepromBuffer[24] < 49 && eepromBuffer[24] > 7){
 		   if(eepromBuffer[24] < 49 && eepromBuffer[24] > 23){
 			   TIMER1_MAX_ARR = map (eepromBuffer[24], 24, 48, TIM1_AUTORELOAD,TIM1_AUTORELOAD/2);
@@ -628,10 +628,10 @@ void loadEEpromSettings(){
 	    	tim1_arr = TIM1_AUTORELOAD;
 	    	TIM1->ARR = tim1_arr;
 	    }
-
+//STARTUP POWER (potenza raddoppiata)!!!!
 	   if(eepromBuffer[25] < 151 && eepromBuffer[25] > 49){
-	   min_startup_duty = (eepromBuffer[25] + DEAD_TIME) * TIMER1_MAX_ARR / 2000;
-	   minimum_duty_cycle = (eepromBuffer[25]/ 2 + DEAD_TIME/3) * TIMER1_MAX_ARR / 2000 ;
+	   min_startup_duty = (eepromBuffer[25]*2 + DEAD_TIME) * TIMER1_MAX_ARR / 2000;
+	   minimum_duty_cycle = (eepromBuffer[25]*2/ 2 + DEAD_TIME/3) * TIMER1_MAX_ARR / 2000 ;
 	   stall_protect_minimum_duty = minimum_duty_cycle+10;
 	    }else{
 	    	min_startup_duty = 150;
