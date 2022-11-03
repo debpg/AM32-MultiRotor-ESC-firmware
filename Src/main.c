@@ -1298,28 +1298,28 @@ if(send_telemetry){
 
 void advanceincrement(){
 if (!forward){
-	phase_A_position = phase_A_position + 2;
+	phase_A_position ++;
     if (phase_A_position > 359){
 	   phase_A_position = 0 ;
     }
-	    phase_B_position = phase_B_position + 2;
+	    phase_B_position ++;
 	     if (phase_B_position > 359){
 		phase_B_position = 0 ;
 	}
-	    phase_C_position = phase_C_position + 2;
+	    phase_C_position ++;
 	     if (phase_C_position > 359){
 		phase_C_position = 0 ;
 	}
 }else{
-	       phase_A_position = phase_A_position - 2;
+	       phase_A_position --;
 	    if (phase_A_position < 0){
 		   phase_A_position = 359 ;
 	    }
-		    phase_B_position = phase_B_position - 2;
+		    phase_B_position --;
 		     if (phase_B_position < 0){
 			phase_B_position = 359;
 		}
-		    phase_C_position = phase_C_position - 2;
+		    phase_C_position --;
 		     if (phase_C_position < 0){
 			phase_C_position = 359 ;
 		}
